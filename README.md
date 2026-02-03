@@ -39,7 +39,7 @@ Um jogo da memória moderno e interativo desenvolvido com **Vue 3**, **TypeScrip
 
 ### ⚡ Instalação Rápida
 
-1. **Clone o repositório**
+1. **Clone**
 
 ```bash
 git clone https://github.com/seu-usuario/jogo-memoria.git
