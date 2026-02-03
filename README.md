@@ -82,10 +82,3 @@ Siga a convenção de commits convencionais
 Documente novas funcionalidades
 
 Mantenha a consistência com o código existente
-
-https://img.shields.io/badge/Made%2520with-Vue.js-4FC08D?style=for-the-badge&logo=vue.js
-https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white
-https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E
-
-</div><p align="center">⭐️ Se você gostou deste projeto, não esqueça de dar uma estrela!</p>
-```
