@@ -9,13 +9,13 @@
       </nav>
     </header>
 
-    <main class="app-main">
-      <router-view />
-    </main>
+    <main class="app-main"><router-view /> <Toast /></main>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Toast from "./components/Toast";
+</script>
 
 <style>
 * {
