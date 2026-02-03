@@ -1,0 +1,241 @@
+.game {
+  flex: 1;
+}
+
+.startScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 500px;
+}
+
+.gameScreen {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.gameContainer {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.gameHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.playerInfo h2 {
+  margin: 0;
+  color: #333;
+}
+
+.rounds {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2196f3;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  min-height: 220px;
+}
+
+.gameCompleted {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.successMessage {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+}
+
+.successMessage h2 {
+  color: #4caf50;
+  margin-bottom: 1rem;
+}
+
+.successMessage p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.ranking,
+.gameStats {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ranking h3,
+.gameStats h4 {
+  margin-top: 0;
+  color: #333;
+  text-align: center;
+}
+
+.emptyRanking {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.rankingList {
+  margin-top: 1rem;
+}
+
+.rankingHeader {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+  gap: 1rem;
+  padding: 0.5rem;
+  background: #e0e0e0;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #333;
+}
+
+.rankingItem {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+  gap: 1rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+}
+
+.rankingItem:last-child {
+  border-bottom: none;
+}
+
+.currentPlayer {
+  background: linear-gradient(45deg, #ffe082, #ffd54f);
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.rank,
+.name,
+.rounds,
+.date {
+  padding: 0.25rem;
+}
+
+.gameStats h4 {
+  margin-bottom: 1.5rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+
+.stat {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2196f3;
+}
+
+@media (max-width: 1024px) {
+  .gameScreen {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .gameContainer,
+  .sidebar {
+    padding: 1rem;
+  }
+
+  .cardsGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+
+  .gameHeader {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .rankingHeader,
+  .rankingItem {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+
+  .date {
+    display: none;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .cardsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
