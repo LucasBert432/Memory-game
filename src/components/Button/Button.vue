@@ -8,7 +8,7 @@
     :aria-busy="loading"
   >
     <span v-if="hasIconSlot && iconPosition === 'left'" :class="styles.icon">
-      <slot name="icon" />
+      <slot name="icon"></slot>
     </span>
 
     <span v-if="loading" :class="styles.spinner"></span>
@@ -17,7 +17,7 @@
     </span>
 
     <span v-if="hasIconSlot && iconPosition === 'right'" :class="styles.icon">
-      <slot name="icon" />
+      <slot name="icon"></slot>
     </span>
 
     <span v-if="badge" :class="styles.badge">{{ badge }}</span>
