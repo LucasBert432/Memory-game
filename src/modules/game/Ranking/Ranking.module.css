@@ -1,0 +1,70 @@
+.ranking {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.ranking h3 {
+  margin-top: 0;
+  color: #333;
+  text-align: center;
+}
+
+.emptyRanking {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.rankingList {
+  margin-top: 1rem;
+}
+
+.rankingHeader {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+  gap: 1rem;
+  padding: 0.5rem;
+  background: #e0e0e0;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #333;
+}
+
+.rankingItem {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+  gap: 1rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+}
+
+.rankingItem:last-child {
+  border-bottom: none;
+}
+
+.currentPlayer {
+  background: linear-gradient(45deg, #ffe082, #ffd54f);
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.rank,
+.name,
+.rounds,
+.date {
+  padding: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .rankingHeader,
+  .rankingItem {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+
+  .date {
+    display: none;
+  }
+}
