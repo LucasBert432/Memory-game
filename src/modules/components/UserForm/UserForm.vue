@@ -3,7 +3,10 @@
     <div :class="styles.formContainer">
       <div :class="styles.formHeader">
         <div :class="styles.formIcon">
-          <img src="../../../../public/memory-logo.png" style="width: 140px" />
+          <img
+            src="../../../../public/memory-logo.png"
+            style="width: 160px; height: 108px"
+          />
         </div>
         <h2 :class="styles.formTitle">Jogue agora!</h2>
         <p :class="styles.formSubtitle">
@@ -80,12 +83,15 @@
             {{ buttonText }}
           </Button>
 
-          <div v-if="recentPlayers.length > 0" :class="styles.recentPlayers">
+          <div
+            v-if="gameStore.ranking.length > 0"
+            :class="styles.recentPlayers"
+          >
             <p :class="styles.recentPlayersTitle">Jogadores recentes:</p>
             <div :class="styles.recentPlayersList">
               <button
-                v-for="player in recentPlayers"
-                :key="player.name"
+                v-for="player in recentPlayersFromStore"
+                :key="player.name + player.date"
                 :class="styles.recentPlayer"
                 @click="selectRecentPlayer(player.name)"
               >
@@ -120,17 +126,17 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from "vue";
+import { useGameStore } from "../../../store/useGameStore/useGameStore";
 import Button from "@/components/Button";
 import FormInput from "@/components/FormInput";
-
 import { User, X, AlertCircle, Play } from "lucide-vue-next";
 import styles from "./UserForm.module.css";
-import { Player } from "@/modules/composables/useGameLogic/game.types";
 
 const UserIcon = User;
 const XIcon = X;
 const AlertCircleIcon = AlertCircle;
 const PlayIcon = Play;
+const gameStore = useGameStore();
 
 const emit = defineEmits<{
   start: [name: string];
@@ -153,20 +159,10 @@ const buttonText = computed(() => {
   return "Começar Jogo";
 });
 
-const recentPlayers = computed<Player[]>(() => {
-  try {
-    const ranking = JSON.parse(
-      localStorage.getItem("memory-game-ranking") || "[]",
-    );
-    return ranking
-      .sort(
-        (a: Player, b: Player) =>
-          new Date(b.date).getTime() - new Date(a.date).getTime(),
-      )
-      .slice(0, 3);
-  } catch {
-    return [];
-  }
+const recentPlayersFromStore = computed(() => {
+  return gameStore.ranking
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3);
 });
 
 const onInputChange = (value: string) => {
@@ -185,6 +181,8 @@ const handleSubmit = async () => {
   await new Promise((resolve) => setTimeout(resolve, 600));
 
   emit("start", playerName.value.trim());
+  gameStore.startGame(playerName.value.trim());
+
   isLoading.value = false;
 };
 
